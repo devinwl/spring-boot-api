@@ -12,15 +12,19 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class Album {
 	@Id
 	@GeneratedValue
+	@ApiModelProperty(notes = "The database generated ID")
 	private Long id;
 
 	@NotNull
 	@Size(max = 255)
 	@Column(unique = true)
+	@ApiModelProperty(notes = "The album's name")
 	private String name;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)

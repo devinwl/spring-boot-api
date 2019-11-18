@@ -12,20 +12,25 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 public class Artist {
 
 	@Id
 	@GeneratedValue
+	@ApiModelProperty(notes = "The database generated ID")
 	private Long id;
 
 	@NotNull
 	@Size(max = 255)
 	@Column(unique = true)
+	@ApiModelProperty(notes = "The artist's name")
 	private String name;
 
 	@OneToMany(mappedBy = "artist")
 	@Lob
+	@ApiModelProperty(notes = "Albums belonging to the artist")
 	private Set<Album> albums = new HashSet<>();
 
 	public Long getId() {
