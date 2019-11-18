@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.example.devinlumley.music.expceptions.ResourceNotFoundException;
+import com.example.devinlumley.music.exceptions.ResourceNotFoundException;
 import com.example.devinlumley.music.models.Album;
 import com.example.devinlumley.music.repositories.AlbumRepository;
 import com.example.devinlumley.music.repositories.ArtistRepository;
