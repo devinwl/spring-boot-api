@@ -15,7 +15,15 @@ jobs:
 
       - checkout
 
+      - restore_cache:
+          key: spring-boot-api-{{ checksum "pom.xml" }}
+
       - run: mvn dependency:go-offline
+
+      - save_cache:
+         paths:
+           - ~/.m2
+         key: spring-boot-api-{{ checksum "pom.xml" }}
 
       - run: mvn package
 
